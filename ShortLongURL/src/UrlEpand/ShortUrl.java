@@ -6,24 +6,21 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class ShortUrl{
-
-	public static void expand(String url){
+	public static String expand(String url){
 		try{
 			HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
 			connection.setInstanceFollowRedirects(true);
 			connection.getInputStream().read();
-			
-			url = connection.toString();
-			System.out.println(url);
+			url = connection.toString().replace("sun.net.www.protocol.https.DelegateHttpsURLConnection:", "");
 		}catch(MalformedURLException e){
 			e.printStackTrace();
 		}catch(IOException e){
 			e.printStackTrace();
 		}
-		//return null;
+		return url;
 	}
 	
 	public static void main(String[] args){
-		ShortUrl.expand("https://tinyurl.com/2tx");
+		System.out.println(ShortUrl.expand("https://tiny.cc/upmuez"));
 	}
 }
