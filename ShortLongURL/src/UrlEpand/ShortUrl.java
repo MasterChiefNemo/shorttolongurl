@@ -1,9 +1,7 @@
 package UrlEpand;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.*;
+import java.net.*;
 
 public class ShortUrl{
 	public static String expand(String url){
