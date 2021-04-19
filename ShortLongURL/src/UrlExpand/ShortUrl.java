@@ -1,4 +1,4 @@
-package UrlEpand;
+package UrlExpand;
 
 import java.io.*;
 import java.net.*;
