@@ -13,7 +13,6 @@ import java.net.*;
  * to ensure links are safe to click and follow.
  *
  */
-
 public class ShortUrl{
 	public static String expand(String url){
 		try{
@@ -24,13 +23,16 @@ public class ShortUrl{
 			
 			// Clean up the returned URL and return as a string.
 			url = connection.toString().replace("sun.net.www.protocol.https.DelegateHttpsURLConnection:", "");
-		}catch(MalformedURLException e){
+		}
+		catch(MalformedURLException e){
 			e.printStackTrace();
-			return "Please check the URL.";
-		}catch(IOException e){
+			return "Check the URL you've provided.";
+		}
+		catch(IOException e){
 			e.printStackTrace();
-			return "Please check your connection.";
-		}catch(Exception e){
+			return "Chheck your connection.";
+		}
+		catch(Exception e){
 			e.printStackTrace();
 			return "General Error.";
 		}
