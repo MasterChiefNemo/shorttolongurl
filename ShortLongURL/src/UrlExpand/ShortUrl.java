@@ -38,8 +38,4 @@ public class ShortUrl{
 		}
 		return url;
 	}
-	
-	public static void main(String[] args){
-		System.out.println(ShortUrl.expand("https://tiny.cc/upmuez"));
-	}
 }
