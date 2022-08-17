@@ -1,6 +1,5 @@
 package UrlExpand;
 
-import java.io.*;
 import java.net.*;
 
 /**
@@ -14,28 +13,17 @@ import java.net.*;
  *
  */
 public class ShortUrl{
-	public static String expand(String url){
-		try{
-			// Gets the URL returned from reading the tiny/short URL passed.
-			HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-			connection.setInstanceFollowRedirects(true);
-			connection.getInputStream().read();
+	public static String expand(String url) throws Exception{
+		HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+		connection.setInstanceFollowRedirects(true);
+		connection.getInputStream().read();
 			
-			// Clean up the returned URL and return as a string.
-			url = connection.toString().replace("sun.net.www.protocol.https.DelegateHttpsURLConnection:", "");
-		}
-		catch(MalformedURLException e){
-			e.printStackTrace();
-			return "Check the URL you've provided.";
-		}
-		catch(IOException e){
-			e.printStackTrace();
-			return "Chheck your connection.";
-		}
-		catch(Exception e){
-			e.printStackTrace();
-			return "General Error.";
-		}
+		// Clean up the returned URL and return as a string.
+		url = connection.toString().replace("sun.net.www.protocol.https.DelegateHttpsURLConnection:", "");
 		return url;
+	}
+	
+	public static void main(String[] args) throws Exception{
+		System.out.println(ShortUrl.expand(args[0]));
 	}
 }
